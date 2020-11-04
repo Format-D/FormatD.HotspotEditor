@@ -2,6 +2,7 @@
   "name": "formatd/hotspot-editor",
   "description": "Hotspot Editor for Neos Backend",
   "type": "neos-package",
+  "license": "MIT",
   "require": {
     "neos/neos-ui": "^5.0"
   },
