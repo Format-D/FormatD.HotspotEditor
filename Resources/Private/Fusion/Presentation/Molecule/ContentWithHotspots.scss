@@ -1,0 +1,12 @@
+.hotspots-area {
+	@apply relative;
+
+	.hotspots-container {
+		@apply absolute inset-0;
+	}
+
+	.hotspot {
+		@apply absolute;
+		cursor: pointer;
+	}
+}

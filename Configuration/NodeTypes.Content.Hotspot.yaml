@@ -1,0 +1,52 @@
+
+
+'FormatD.HotspotEditor:Content.Hotspot':
+  label: ${q(node).property('hoverTitle')}
+  superTypes:
+    'Neos.Neos:Content': true
+    'Neos.NodeTypes.BaseMixins:TitleMixin': true
+  ui:
+    group: general
+    label: 'Hotspot'
+    icon: icon-bullseye
+    inspector:
+      groups:
+        document:
+          label: 'Hotspot'
+  properties:
+    xPosition:
+      type: string
+      defaultValue: '2'
+      ui:
+        label: 'X-Position (%)'
+        reloadIfChanged: false
+        inspector:
+          group: document
+          editor: FormatD.HotspotEditor/HotspotEditor
+    yPosition:
+      type: string
+      defaultValue: '2'
+      ui:
+        label: 'Y-Position (%)'
+        reloadIfChanged: false
+        inspector:
+          group: document
+          editor: FormatD.HotspotEditor/HotspotEditor
+    link:
+      type: reference
+      ui:
+        label: 'Link'
+        reloadIfChanged: true
+        inspector:
+          group: document
+          editorOptions:
+            nodeTypes:
+              - 'Neos.Neos:Document'
+    hoverTitle:
+      type: string
+      ui:
+        label: 'Titel (on hover)'
+        reloadIfChanged: true
+        inspector:
+          group: document
+          position: 50

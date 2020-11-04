@@ -1,0 +1,31 @@
+prototype(FormatD.HotspotEditor:Molecule.ContentWithHotspots) < prototype(Neos.Fusion:Component) {
+
+	@styleguide {
+		title = 'Content with Hotspots'
+		description = 'This is a generic element for any content with hotspots overlay'
+		props {
+			content = '<div style="width: 500px;height: 500px; background-color: gray;">Hello!</div>'
+			hotspots =  afx`
+					<FormatD.HotspotEditor:Atom.Hotspot xPosition="50" yPosition="50" /><FormatD.HotspotEditor:Atom.Hotspot xPosition="150" yPosition="150" />
+				`
+		}
+	}
+
+	@propTypes {
+		@strict = true
+		content = ${PropTypes.string}
+		hotspots = ${PropTypes.string}
+	}
+
+	content = ''
+	hotspots = ''
+
+	renderer = afx`
+		<div class.hotspotsArea="hotspots-area">
+			{props.content}
+			<div class.hotspotsContainer="hotspots-container">
+				{props.hotspots}
+			</div>
+		</div>
+	`
+}

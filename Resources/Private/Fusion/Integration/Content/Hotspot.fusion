@@ -1,0 +1,17 @@
+prototype(FormatD.HotspotEditor:Content.Hotspot) < prototype(Neos.Neos:ContentComponent) {
+
+	renderer = FormatD.HotspotEditor:Atom.Hotspot {
+
+		title = ${q(node).property('title')}
+		label = ${q(node).property('label')}
+
+		xPosition = ${q(node).property('xPosition')}
+		yPosition = ${q(node).property('yPosition')}
+
+		uri = Neos.Neos:NodeUri {
+			node = ${q(node).property('link')}
+		}
+
+	}
+
+}

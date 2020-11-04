@@ -1,0 +1,13 @@
+{
+  "name": "formatd/hotspot-editor",
+  "description": "Hotspot Editor for Neos Backend",
+  "type": "neos-package",
+  "require": {
+    "neos/neos-ui": "^5.0"
+  },
+  "extra": {
+    "neos": {
+      "package-key": "FormatD.HotspotEditor"
+    }
+  }
+}

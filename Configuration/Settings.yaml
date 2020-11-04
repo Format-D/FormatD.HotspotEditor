@@ -1,0 +1,14 @@
+Neos:
+  Neos:
+    Ui:
+      resources:
+        javascript:
+          'FormatD.HotspotEditor:HotspotEditor':
+            resource: resource://FormatD.HotspotEditor/Public/HotspotEditor/Plugin.js
+    userInterface:
+      translation:
+        autoInclude:
+          'FormatD.HotspotEditor': ['NodeTypes/*']
+    fusion:
+      autoInclude:
+        FormatD.HotspotEditor: true

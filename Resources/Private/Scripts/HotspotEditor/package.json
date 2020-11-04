@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build": "neos-react-scripts build",
+    "watch": "neos-react-scripts watch"
+  },
+  "neos": {
+    "buildTargetDirectory": "../../../Public/HotspotEditor"
+  },
+  "devDependencies": {
+    "@neos-project/neos-ui-extensibility": "^5.1"
+  },
+  "dependencies": {}
+}

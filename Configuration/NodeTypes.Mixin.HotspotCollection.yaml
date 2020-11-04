@@ -1,0 +1,11 @@
+
+
+'FormatD.HotspotEditor:Mixin.HotspotCollection':
+  abstract: true
+  childNodes:
+    hotspots:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': false
+          'FormatD.HotspotEditor:Content.Hotspot': true
