@@ -4,12 +4,22 @@ prototype(FormatD.HotspotEditor:Content.Hotspot) < prototype(Neos.Neos:ContentCo
 
 		title = ${q(node).property('title')}
 		label = ${q(node).property('label')}
+		identifier = ${String.md5(q(node).property('_identifier'))}
 
 		xPosition = ${q(node).property('xPosition')}
 		yPosition = ${q(node).property('yPosition')}
 
-		uri = Neos.Neos:NodeUri {
-			node = ${q(node).property('link')}
+		uri = Neos.Fusion:Case {
+			hasLink {
+				condition = ${q(node).property('link')}
+				renderer = Neos.Neos:NodeUri {
+					node = ${q(node).property('link')}
+				}
+			}
+			default {
+				condition = true
+				renderer = ''
+			}
 		}
 
 	}

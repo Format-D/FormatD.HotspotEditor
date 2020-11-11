@@ -4,8 +4,14 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 		title = 'Hotspot'
 		description = 'This is a hotspot item'
 		props {
-			content = '<div style="width: 500px;height: 500px; background-color: gray;">Hello!</div>'
-			hotspots = ''
+			content = '<svg class="hotspot-img" width="50" height="50" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<ellipse cx="20.5833" cy="21.2286" rx="10.8088" ry="10.8" fill="white"/>
+					<path d="M39 21.2286C39 31.3891 30.7561 39.6286 20.5833 39.6286C10.4106 39.6286 2.16667 31.3891 2.16667 21.2286C2.16667 11.0681 10.4106 2.82855 20.5833 2.82855C30.7561 2.82855 39 11.0681 39 21.2286Z" stroke="white" stroke-width="3" />
+				</svg>'
+			xPosition = 50
+			yPosition = 50
+			uri = 'http://www.google.de'
+			identifier = 'a-identifier-23453462467'
 		}
 	}
 
@@ -13,36 +19,34 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 		@strict = false
 		xPosition = ${PropTypes.string}
 		yPosition = ${PropTypes.string}
+		identifier = ${PropTypes.string}
 		uri = ${PropTypes.string}
 		content = ${PropTypes.string}
 	}
 
-
 	xPosition = '50'
 	yPosition = '50'
 	uri = ''
+	identifier = null
 	content =  '<svg class="hotspot-img" width="50" height="50" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<ellipse cx="20.5833" cy="21.2286" rx="10.8088" ry="10.8" fill="white"/>
 					<path d="M39 21.2286C39 31.3891 30.7561 39.6286 20.5833 39.6286C10.4106 39.6286 2.16667 31.3891 2.16667 21.2286C2.16667 11.0681 10.4106 2.82855 20.5833 2.82855C30.7561 2.82855 39 11.0681 39 21.2286Z" stroke="white" stroke-width="3" />
 				</svg>'
 
-	renderer = Neos.Fusion:Component {
-		@apply.props = ${props}
+	styleCoordinates = ${'top: ' + this.yPosition + '%; left: ' + this.xPosition + '%;'}
+	inBackend = ${documentNode.context.inBackend}
 
-		styleCoordinates = ${'top: ' + this.yPosition + '%; left: ' + this.xPosition + '%;'}
-		inBackend = ${documentNode.context.inBackend}
+	renderer = afx`
+		<div class="hotspot" style={props.styleCoordinates} data-hotspot-posx={props.xPosition} data-hotspot-posy={props.yPosition} data-hotspot-id={props.identifier} >
+			<Neos.Fusion:Tag
+				attributes.class="hotspot-link"
+				attributes.href={props.uri ? props.uri : null}
+				tagName={props.inBackend || !props.uri ? 'div' : 'a'}
+			>
+				{props.content}
+			</Neos.Fusion:Tag>
+		</div>
+	`
 
-		renderer = afx`
-            <div class="hotspot" style={props.styleCoordinates}>
-                <Neos.Fusion:Tag
-					attributes.class="hotspot-link"
-					attributes.href={props.uri ? props.uri : null}
-					tagName={props.inBackend || !props.uri ? 'div' : 'a'}
-                >
-					{props.content}
-                </Neos.Fusion:Tag>
-            </div>
-		`
-	}
 
 }
