@@ -5,14 +5,14 @@ export default class Hotspots {
 	private debug: boolean;
 	private selectedElement: HTMLElement
 	private readonly domSection: HTMLElement;
-	private readonly hotspotNodeType: string;
+	private readonly hotspotNodeTypes: string[];
 	private activeMouseDownListener: EventListener;
 	private activeMouseMoveListener: EventListener;
 	private activeMouseUpListener: EventListener;
 
-	constructor(domSection: HTMLElement, hotspotNodeType: string = 'FormatD.HotspotEditor:Content.Hotspot') {
+	constructor(domSection: HTMLElement, hotspotNodeTypes: string[] = ['FormatD.HotspotEditor:Content.Hotspot']) {
 		this.domSection = domSection;
-		this.hotspotNodeType = hotspotNodeType;
+		this.hotspotNodeTypes = hotspotNodeTypes ;
 
 		// only initialize in backend
 		if (document.querySelector('body').classList.contains('neos-backend')) {
@@ -60,7 +60,7 @@ export default class Hotspots {
 		const detail = event.detail;
 
 		// event.detail === 1 >> only fire on single click
-		if (event.detail.node.nodeType === this.hotspotNodeType && this.editable) {
+		if (this.hotspotNodeTypes.includes(event.detail.node.nodeType) && this.editable) {
 			this.selectedElement = (detail.element as HTMLElement);
 			const containerElement = this.selectedElement.parentElement.parentElement;
 

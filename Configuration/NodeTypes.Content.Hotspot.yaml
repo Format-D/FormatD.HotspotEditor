@@ -1,7 +1,7 @@
 
 
 'FormatD.HotspotEditor:Content.Hotspot':
-  label: ${q(node).property('hoverTitle')}
+  label: "${q(node).property('hoverTitle') ? q(node).property('hoverTitle') : q(node).property('xPosition') + 'x ' + q(node).property('yPosition') + 'y'}"
   superTypes:
     'Neos.Neos:Content': true
     'Neos.NodeTypes.BaseMixins:TitleMixin': true
