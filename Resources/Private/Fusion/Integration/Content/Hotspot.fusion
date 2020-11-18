@@ -2,8 +2,7 @@ prototype(FormatD.HotspotEditor:Content.Hotspot) < prototype(Neos.Neos:ContentCo
 
 	renderer = FormatD.HotspotEditor:Atom.Hotspot {
 
-		title = ${q(node).property('title')}
-		label = ${q(node).property('label')}
+		hoverTitle = ${q(node).property('hoverTitle')}
 		identifier = ${String.md5(q(node).property('_identifier'))}
 
 		xPosition = ${q(node).property('xPosition')}

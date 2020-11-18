@@ -4,6 +4,7 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 		title = 'Hotspot'
 		description = 'This is a hotspot item'
 		props {
+            hoverTitle = 'Hover title'
 			content = '<svg class="hotspot-img" width="50" height="50" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<ellipse cx="20.5833" cy="21.2286" rx="10.8088" ry="10.8" fill="white"/>
 					<path d="M39 21.2286C39 31.3891 30.7561 39.6286 20.5833 39.6286C10.4106 39.6286 2.16667 31.3891 2.16667 21.2286C2.16667 11.0681 10.4106 2.82855 20.5833 2.82855C30.7561 2.82855 39 11.0681 39 21.2286Z" stroke="white" stroke-width="3" />
@@ -17,6 +18,7 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 
 	@propTypes {
 		@strict = false
+        hoverTitle = ${PropTypes.string}
 		xPosition = ${PropTypes.string}
 		yPosition = ${PropTypes.string}
 		identifier = ${PropTypes.string}
@@ -24,6 +26,7 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 		content = ${PropTypes.string}
 	}
 
+    hoverTitle = ''
 	xPosition = '50'
 	yPosition = '50'
 	uri = ''
@@ -43,7 +46,10 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 				attributes.href={props.uri ? props.uri : null}
 				tagName={props.inBackend || !props.uri ? 'div' : 'a'}
 			>
-				{props.content}
+				<div class.content="hotspot--content" >
+                    {props.content}
+                </div>
+                <div class="hotspot--hover-title" @if.isProvided={props.hoverTitle || props.inBackend} >{props.hoverTitle}</div>
 			</Neos.Fusion:Tag>
 		</div>
 	`
