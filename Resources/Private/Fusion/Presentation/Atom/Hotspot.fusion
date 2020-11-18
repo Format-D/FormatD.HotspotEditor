@@ -8,8 +8,8 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 					<ellipse cx="20.5833" cy="21.2286" rx="10.8088" ry="10.8" fill="white"/>
 					<path d="M39 21.2286C39 31.3891 30.7561 39.6286 20.5833 39.6286C10.4106 39.6286 2.16667 31.3891 2.16667 21.2286C2.16667 11.0681 10.4106 2.82855 20.5833 2.82855C30.7561 2.82855 39 11.0681 39 21.2286Z" stroke="white" stroke-width="3" />
 				</svg>'
-			xPosition = 50
-			yPosition = 50
+			xPosition = '50'
+			yPosition = '50'
 			uri = 'http://www.google.de'
 			identifier = 'a-identifier-23453462467'
 		}
