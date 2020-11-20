@@ -1,11 +1,25 @@
 .hotspot {
+    @apply absolute;
 
-    .hotspot--content {
+    &:hover {
+        .hotspot--hover-title {
+            @apply opacity-100 w-auto ml-20;
+        }
+    }
 
+    .hotspot-link {
+        @apply flex items-center;
     }
 
     .hotspot--hover-title {
-
+        @apply opacity-0 w-0 overflow-hidden;
+        transition: all 0.3s ease-in-out;
     }
 
+}
+
+
+.hotspot--backend-notice {
+    @apply text-xs bg-black text-white p-5 rounded-20 mt-10;
+    width: 145px;
 }
