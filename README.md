@@ -1,7 +1,8 @@
 
 # FormatD.HotspotEditor
 
-Provides Backend Editor and some Content Elements / Fusion Prototypes for drag and drop of Hotspots on an Image
+Provides backend editor for neos and some base fusion prototypes for drag and drop hotspots on any content.
+This package is meant as base for concrete implementations of content elements.
 
 
 ## Compile Backend Editor:
