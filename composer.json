@@ -4,7 +4,7 @@
   "type": "neos-package",
   "license": "MIT",
   "require": {
-    "neos/neos-ui": "^5.0 || ^7.0 || ^8.0"
+    "neos/neos-ui": "^7.0 || ^8.0"
   },
   "extra": {
     "neos": {
