@@ -3,11 +3,16 @@
     "build": "neos-react-scripts build",
     "watch": "neos-react-scripts watch"
   },
+  "engines": {
+    "node": ">=16"
+  },
   "neos": {
     "buildTargetDirectory": "../../../Public/HotspotEditor"
   },
   "devDependencies": {
-    "@neos-project/neos-ui-extensibility": "^5.1"
+    "@neos-project/build-essentials": "^8.2.0",
+    "@neos-project/neos-ui-extensibility": "^8.2.0",
+    "@neos-project/react-ui-components": "^8.2.0"
   },
   "dependencies": {}
 }
