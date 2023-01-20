@@ -6,13 +6,15 @@ This package is meant as base for concrete implementations of content elements.
 
 ### Installation
 
-    composer require formatd/hotspot-editor
-
+```bash
+composer require formatd/hotspot-editor
+```
 
 ### Compile Backend Editor
 
-    cd Resources/Private/Scripts/HotspotEditor && yarn && yarn build
-
+```bash
+cd Resources/Private/Scripts/HotspotEditor && yarn && yarn build
+```
 
 ### Compatibility
 
