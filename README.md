@@ -6,8 +6,11 @@ This package is meant as base for concrete implementations of content elements.
 
 ### Installation
 
+Don't install this package without an implementation package. Use it as base for your own package or
+use `formatd/hotspot-content` (https://github.com/Format-D/FormatD.HotspotContent) for a concrete implementation of a `Image with Hotspots` content element.
+
 ```bash
-composer require formatd/hotspot-editor
+composer require formatd/hotspot-content
 ```
 
 ### Compile Backend Editor
@@ -28,6 +31,7 @@ Versioning Scheme
 
 Releases & Compatibility
 
-| Package Version | NEOS CMS Version |      
-|-----------------|------------------|
-| 1.1.x           | >= 8.3 < 9       |
+| Package Version | NEOS CMS Version | Notes                                                                 |
+|-----------------|------------------|-----------------------------------------------------------------------|
+| 1.1.x           | >= 8.3 < 9       |                                                                       |
+| 2.0.x           | >= 8.3 < 9       | completely reworked structure compatible with formatd/hotspot-content |
