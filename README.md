@@ -30,4 +30,4 @@ Releases & Compatibility
 
 | Package Version | NEOS CMS Version |      
 |-----------------|------------------|
-| 1.0.x           | 5.X, 7.X, 8.X    |
+| 1.1.x           | >= 8.3 < 9       |
