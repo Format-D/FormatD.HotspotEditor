@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="FormatD.HotspotEditor" source-language="en" datatype="plaintext">
+		<body>
+			<trans-unit id="ui.label" xml:space="preserve">
+				<source>Hotspot</source>
+			</trans-unit>
+			<trans-unit id="groups.document" xml:space="preserve">
+				<source>Hotspot</source>
+			</trans-unit>
+			<trans-unit id="properties.xPosition" xml:space="preserve">
+				<source>X-Position (%)</source>
+			</trans-unit>
+			<trans-unit id="properties.yPosition" xml:space="preserve">
+				<source>Y-Position (%)</source>
+			</trans-unit>
+			<trans-unit id="properties.link" xml:space="preserve">
+				<source>Link</source>
+			</trans-unit>
+			<trans-unit id="properties.hoverTitle" xml:space="preserve">
+				<source>Title (on hover)</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

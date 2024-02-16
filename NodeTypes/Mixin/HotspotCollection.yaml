@@ -1,5 +1,4 @@
 
-
 'FormatD.HotspotEditor:Mixin.HotspotCollection':
   abstract: true
   childNodes:
