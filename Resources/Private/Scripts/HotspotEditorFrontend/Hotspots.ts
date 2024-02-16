@@ -80,7 +80,7 @@ export default class Hotspots {
 				mouseEvent.preventDefault();
 
 				const containerElement = mouseEvent.composedPath().find((element: HTMLElement) => {
-					return element.className === 'hotspots-container';
+					return element.className === 'content-with-hotspots--container';
 				});
 
 				this._dispatchHotspotDraggedEvent({

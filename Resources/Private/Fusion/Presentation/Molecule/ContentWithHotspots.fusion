@@ -21,9 +21,13 @@ prototype(FormatD.HotspotEditor:Molecule.ContentWithHotspots) < prototype(Neos.F
 	hotspots = ''
 
 	renderer = afx`
-		<div class.hotspotsArea="hotspots-area">
+		<div class.contentWithHotspots="content-with-hotspots"
+			 @key="contentWithHotspots"
+		>
 			{props.content}
-			<div class.hotspotsContainer="hotspots-container">
+			<div class.contentWithHotspotsContainer="content-with-hotspots--container"
+				 @key="contentWithHotspotsContainer"
+			>
 				{props.hotspots}
 			</div>
 		</div>

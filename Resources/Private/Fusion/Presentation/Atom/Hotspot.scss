@@ -1,25 +1,58 @@
+* {
+  --hotspot-backend-notice-width: 11rem;
+  --hotspot-backend-notice-top-position: 3rem;
+  --hotspot-backend-notice-left-position: 0;
+  --hotspot-backend-notice-bg-color: #000000;
+  --hotspot-backend-notice-text-color: #ffffff;
+
+  --hotspot-height: 3.125rem;
+  --hotspot-hover-title-color: #ffffff;
+  --hotspot-hover-title-transition: all 0.3s ease-in-out;
+}
+
 .hotspot {
-    @apply absolute;
+  	position: absolute;
+  	z-index: 20;
+	display: flex;
+	align-items: center;
+  	justify-content: center;
+  	height: var(--hotspot-height);
 
     &:hover {
         .hotspot--hover-title {
-            @apply opacity-100 w-auto ml-20;
+		  	opacity: 1;
+		  	width: auto;
+		  	margin-left: 1rem;
         }
     }
+}
+a.hotspot {
+  	cursor: pointer;
 
-    .hotspot-link {
-        @apply flex items-center;
-    }
-
-    .hotspot--hover-title {
-        @apply opacity-0 w-0 overflow-hidden;
-        transition: all 0.3s ease-in-out;
-    }
-
+	&:hover {
+	  	text-decoration: none;
+	}
 }
 
+.hotspot--hover-title {
+	opacity: 0;
+	width: 0;
+	overflow: hidden;
+  	color: var(--hotspot-hover-title-color);
+	transition: var(--hotspot-hover-title-transition);
+}
 
 .hotspot--backend-notice {
-    @apply text-xs bg-black text-white p-5 rounded-20 mt-10;
-    width: 145px;
+  	position: absolute;
+  	z-index: 2;
+  	top: var(--hotspot-backend-notice-top-position);
+  	left: var(--hotspot-backend-notice-left-position);
+  	width: var(--hotspot-backend-notice-width);
+  	padding: 0.75rem;
+  	margin-top: 0.75rem;
+	font-size: 0.75rem;
+	line-height: 1rem;
+  	color: var(--hotspot-backend-notice-text-color);
+  	background-color: var(--hotspot-backend-notice-bg-color);
+  	border-radius: 1rem;
 }

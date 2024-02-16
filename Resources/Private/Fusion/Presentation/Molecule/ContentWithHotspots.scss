@@ -1,7 +1,9 @@
-.hotspots-area {
-	@apply relative;
 
-	.hotspots-container {
-		@apply absolute inset-0;
-	}
+.content-with-hotspots {
+  	position: relative;
+}
+
+.content-with-hotspots--container {
+  position: absolute;
+  inset: 0;
 }

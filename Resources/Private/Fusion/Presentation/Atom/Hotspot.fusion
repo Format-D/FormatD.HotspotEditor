@@ -5,7 +5,7 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 		description = 'This is a hotspot item'
 		props {
             hoverTitle = 'Hover title'
-			content = '<svg class="hotspot-img" width="50" height="50" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+			content = '<svg width="50" height="50" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<ellipse cx="20.5833" cy="21.2286" rx="10.8088" ry="10.8" fill="white"/>
 					<path d="M39 21.2286C39 31.3891 30.7561 39.6286 20.5833 39.6286C10.4106 39.6286 2.16667 31.3891 2.16667 21.2286C2.16667 11.0681 10.4106 2.82855 20.5833 2.82855C30.7561 2.82855 39 11.0681 39 21.2286Z" stroke="white" stroke-width="3" />
 				</svg>'
@@ -31,7 +31,7 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 	yPosition = '50'
 	uri = ''
 	identifier = null
-	content =  '<svg class="hotspot-img" width="50" height="50" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+	content =  '<svg width="50" height="50" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<ellipse cx="20.5833" cy="21.2286" rx="10.8088" ry="10.8" fill="white"/>
 					<path d="M39 21.2286C39 31.3891 30.7561 39.6286 20.5833 39.6286C10.4106 39.6286 2.16667 31.3891 2.16667 21.2286C2.16667 11.0681 10.4106 2.82855 20.5833 2.82855C30.7561 2.82855 39 11.0681 39 21.2286Z" stroke="white" stroke-width="3" />
 				</svg>'
@@ -40,18 +40,31 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 	inBackend = ${documentNode.context.inBackend}
 
 	renderer = afx`
-		<div class="hotspot" style={props.styleCoordinates} data-hotspot-posx={props.xPosition} data-hotspot-posy={props.yPosition} data-hotspot-id={props.identifier} >
-			<Neos.Fusion:Tag
-				attributes.class="hotspot-link"
+		<Neos.Fusion:Tag
+				tagName={props.inBackend || !props.uri ? 'button' : 'a'}
+				attributes.class.hotspot="hotspot"
+				attributes.style={props.styleCoordinates}
 				attributes.href={props.uri ? props.uri : null}
-				tagName={props.inBackend || !props.uri ? 'div' : 'a'}
+				attributes.type={!props.uri ? 'button' : null}
+				attributes.aria-controls={!props.uri ? props.identifier : null}
+				attributes.aria-label={props.hoverTitle ? props.hoverTitle : 'Hotspot'}
+				attributes.data-hotspot-posx={props.xPosition}
+				attributes.data-hotspot-posy={props.yPosition}
+				attributes.data-hotspot-id={props.identifier}
+				@key="hotspot"
+		>
+			<div class.content="hotspot--content"
+				 @key="hotspotContent"
 			>
-				<div class.content="hotspot--content" >
-                    {props.content}
-                </div>
-                <div class="hotspot--hover-title" @if.isProvided={props.hoverTitle || props.inBackend} >{props.hoverTitle}</div>
-			</Neos.Fusion:Tag>
-		</div>
+				{props.content}
+			</div>
+			<div class.title="hotspot--hover-title"
+				 @if.isProvided={props.hoverTitle}
+				 @key="hotspot--hover-title"
+			>
+				{props.hoverTitle}
+			</div>
+		</Neos.Fusion:Tag>
 	`
 
 
