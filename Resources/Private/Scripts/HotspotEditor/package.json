@@ -1,16 +1,21 @@
 {
-  "scripts": {
-    "build": "neos-react-scripts build",
-    "watch": "neos-react-scripts watch"
-  },
+  "name": "formatd-hotspot-editor",
+  "description": "FormatD.HotspotEditor",
+  "license": "MIT",
+  "private": true,
   "engines": {
-    "node": ">=16"
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production node esbuild.js",
+    "watch": "node esbuild.js --watch"
+  },
+  "devDependencies": {
+    "@neos-project/neos-ui-extensibility": "^9.0.0",
+    "@neos-project/react-ui-components": "^9.0.0",
+    "esbuild": "^0.28.1"
   },
   "neos": {
     "buildTargetDirectory": "../../../Public/HotspotEditor"
-  },
-  "devDependencies": {
-    "@neos-project/neos-ui-extensibility-webpack-adapter": "^8.3.0"
-  },
-  "dependencies": {}
+  }
 }

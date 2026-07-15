@@ -1,4 +1,2 @@
-
-include: Integration/**/*
-include: Presentation/**/*
-
+include: **/*.fusion
+include: nodetypes://FormatD.HotspotEditor/**/*.fusion

@@ -5,8 +5,10 @@ import {TextInput} from '@neos-project/react-ui-components';
 
 export default class HotspotEditor extends PureComponent {
     static propTypes = {
-        value: PropTypes.string,
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        identifier: PropTypes.string,
         commit: PropTypes.func.isRequired,
+        applyInspector: PropTypes.func.isRequired,
     };
 
     componentDidMount() {
@@ -32,12 +34,12 @@ export default class HotspotEditor extends PureComponent {
     };
 
     handleHotspotDragged = event => {
-        this.props.commit(event.detail.Payload.pos[this.props.identifier]);
-
-        // @todo: temporary hack until problem with apply button is solved
-        setTimeout(function() {
-			document.getElementById('neos-Inspector-Apply').click();
-		}, 400);
+        const pos = event.detail?.Payload?.pos;
+        if (!pos || pos[this.props.identifier] === undefined) {
+            return;
+        }
+        this.props.commit(pos[this.props.identifier]);
+        this.props.applyInspector();
     };
 
     render() {

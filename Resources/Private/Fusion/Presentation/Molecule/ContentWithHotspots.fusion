@@ -1,35 +1,39 @@
 prototype(FormatD.HotspotEditor:Molecule.ContentWithHotspots) < prototype(Neos.Fusion:Component) {
 
-	@styleguide {
-		title = 'Content with Hotspots'
-		description = 'This is a generic element for any content with hotspots overlay'
-		props {
-			content = '<div style="width: 500px;height: 500px; background-color: gray;">Hello!</div>'
-			hotspots =  afx`
-					<FormatD.HotspotEditor:Atom.Hotspot xPosition="50" yPosition="50" /><FormatD.HotspotEditor:Atom.Hotspot xPosition="150" yPosition="150" />
-				`
-		}
-	}
+    @styleguide {
+        title = 'Content with Hotspots'
+        description = 'This is a generic element for any content with hotspots overlay'
+        props {
+            content = '<div style="width: 500px;height: 500px; background-color: gray;">Hello!</div>'
+            hotspots = afx`
+                <FormatD.HotspotEditor:Atom.Hotspot xPosition="50" yPosition="50"/>
+                <FormatD.HotspotEditor:Atom.Hotspot xPosition="150" yPosition="150"/>
+            `
+        }
+    }
 
-	@propTypes {
-		@strict = true
-		content = ${PropTypes.string}
-		hotspots = ${PropTypes.string}
-	}
+    @propTypes {
+        @strict = true
+        content = ${PropTypes.string}
+        hotspots = ${PropTypes.string}
+        hotspotNodeTypes = ${PropTypes.any}
+    }
 
-	content = ''
-	hotspots = ''
+    content = ''
+    hotspots = ''
+    hotspotNodeTypes = ${[]}
 
-	renderer = afx`
-		<div class.contentWithHotspots="content-with-hotspots"
-			 @key="contentWithHotspots"
-		>
-			{props.content}
-			<div class.contentWithHotspotsContainer="content-with-hotspots--container"
-				 @key="contentWithHotspotsContainer"
-			>
-				{props.hotspots}
-			</div>
-		</div>
-	`
+    renderer = afx`
+        <div class.contentWithHotspots="content-with-hotspots"
+             data-hotspot-node-types={renderingMode.isEdit ? Array.join(props.hotspotNodeTypes, ',') : null}
+             @key="contentWithHotspots"
+        >
+            {props.content}
+            <div class.contentWithHotspotsContainer="content-with-hotspots--container"
+                 @key="contentWithHotspotsContainer"
+            >
+                {props.hotspots}
+            </div>
+        </div>
+    `
 }

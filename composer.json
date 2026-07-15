@@ -4,7 +4,10 @@
   "type": "neos-package",
   "license": "MIT",
   "require": {
-    "neos/neos-ui": "~8.3"
+    "neos/neos-ui": "~9.0"
+  },
+  "suggest": {
+    "formatd/hotspot-content": "Default implementation package providing the ImageWithHotspots content element"
   },
   "extra": {
     "neos": {

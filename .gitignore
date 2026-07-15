@@ -1,2 +1,3 @@
 .idea
-Resources/Private/Scripts/HotspotEditor/node_modules
+**/node_modules
+*.map

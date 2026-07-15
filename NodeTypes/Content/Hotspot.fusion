@@ -1,9 +1,16 @@
 prototype(FormatD.HotspotEditor:Content.Hotspot) < prototype(Neos.Neos:ContentComponent) {
 
 	renderer = FormatD.HotspotEditor:Atom.Hotspot {
-
 		hoverTitle = ${q(node).property('hoverTitle')}
-		identifier = ${String.md5(q(node).property('_identifier'))}
+		ariaLabel = ${
+			q(node).property('hoverTitle')
+				? q(node).property('hoverTitle')
+				: ('Hotspot ' + (Array.length(Array.filter(
+					q(node).prevAll('[instanceof FormatD.HotspotEditor:Content.Hotspot]').get(),
+					sibling => !sibling.properties.hoverTitle
+				)) + 1))
+		}
+		identifier = ${node.aggregateId}
 
 		xPosition = ${q(node).property('xPosition')}
 		yPosition = ${q(node).property('yPosition')}
@@ -20,7 +27,6 @@ prototype(FormatD.HotspotEditor:Content.Hotspot) < prototype(Neos.Neos:ContentCo
 				renderer = ''
 			}
 		}
-
 	}
 
 }

@@ -2,6 +2,7 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 
 	@styleguide {
 		title = 'Hotspot'
+		ariaLabel = 'Test-Hotspot'
 		description = 'This is a hotspot item'
 		props {
             hoverTitle = 'Hover title'
@@ -19,16 +20,18 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 	@propTypes {
 		@strict = false
         hoverTitle = ${PropTypes.string}
-		xPosition = ${PropTypes.string}
-		yPosition = ${PropTypes.string}
+		ariaLabel = ${PropTypes.string}
+		xPosition = ${PropTypes.float}
+		yPosition = ${PropTypes.float}
 		identifier = ${PropTypes.string}
 		uri = ${PropTypes.string}
 		content = ${PropTypes.string}
 	}
 
     hoverTitle = ''
-	xPosition = '50'
-	yPosition = '50'
+	ariaLabel = ''
+	xPosition = 50.0
+	yPosition = 50.0
 	uri = ''
 	identifier = null
 	content =  '<svg width="50" height="50" viewBox="0 0 41 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,17 +40,17 @@ prototype(FormatD.HotspotEditor:Atom.Hotspot) < prototype(Neos.Fusion:Component)
 				</svg>'
 
 	styleCoordinates = ${'top: ' + this.yPosition + '%; left: ' + this.xPosition + '%;'}
-	inBackend = ${documentNode.context.inBackend}
+	inBackend = ${renderingMode.isEdit || renderingMode.isPreview}
 
 	renderer = afx`
 		<Neos.Fusion:Tag
 				tagName={props.inBackend || !props.uri ? 'button' : 'a'}
 				attributes.class.hotspot="hotspot"
 				attributes.style={props.styleCoordinates}
-				attributes.href={props.uri ? props.uri : null}
+				attributes.href={!props.inBackend && props.uri ? props.uri : null}
 				attributes.type={!props.uri ? 'button' : null}
 				attributes.aria-controls={!props.uri ? props.identifier : null}
-				attributes.aria-label={props.hoverTitle ? props.hoverTitle : 'Hotspot'}
+				attributes.aria-label={props.ariaLabel ? props.ariaLabel : props.hoverTitle}
 				attributes.data-hotspot-posx={props.xPosition}
 				attributes.data-hotspot-posy={props.yPosition}
 				attributes.data-hotspot-id={props.identifier}
